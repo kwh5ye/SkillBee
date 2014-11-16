@@ -55,7 +55,7 @@
                 <li class="active"><a href="/jobContact">Jobs</a></li>
                 <li class="active"><a href="/auth/logout">Logout</a></li>
                 {% else %}
-                <li class="active"><a href="/login">Login</a></li>
+                <li class="active"><a href="/auth/login">Login</a></li>
                 {% endif %}
               </ul>
             </div>
@@ -120,15 +120,15 @@
     	<!-- Cycle through students in APP-->
 		<div class="row">
 		  <div class="col-sm-6 col-md-4">
-		  	{% for stud in students %}
+		  	{% for k, stud in students %}
 		    <div class="thumbnail">
 		      <img src="http://graphics.fansonly.com/photos/schools/va/genrel/auto_action/a-CavManCartoon.jpg" alt="...">
 		      <div class="caption">
-		        <h3>{{ students.<student_id>.name }}</h3>
-		        <p> {{ students.<student_id>.major }} <br> 
-		        	{{ students.<student_id>.gpa }}
+		        <h3>{{ stud.name }}</h3>
+		        <p> {{ stud.major }} <br> 
+		        	{{ stud.gpa }}
 		        </p>
-		        <p><a href="/job/create/<cat>/<student_id>" class="btn btn-primary" role="button">Make Offer</a> 
+		        <p><a href="/job/create/{{ cat }}/ {{ k }}" class="btn btn-primary" role="button">Make Offer</a> 
 		        	<a href="#" class="btn btn-default" role="button">See More</a></p>
 		      </div>
 		    </div>
