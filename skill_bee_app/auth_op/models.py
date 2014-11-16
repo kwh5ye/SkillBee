@@ -14,6 +14,9 @@ class StudentUser(models.Model):
     grad_year = models.PositiveSmallIntegerField()
     gpa = models.FloatField()
     portfolio = models.TextField(blank=True)
+    app_bool = models.BooleanField(default=False)
+    sup_bool = models.BooleanField(default=False)
+    soc_bool = models.BooleanField(default=False)
 
     def __unicode__(self):  # Python 3: def __str__(self):
         return str(self.user) + "\nMajor, Grad, GPA, Porf " + str(self.major) + str(self.grad_year) + str(self.gpa) + str(self.portfolio)

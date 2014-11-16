@@ -13,7 +13,7 @@ class StudentRegForm(forms.ModelForm):
 
    class Meta:
      model = StudentUser
-     fields = ('major', 'grad_year', 'gpa', 'portfolio')
+     fields = ('major', 'grad_year', 'gpa', 'portfolio', 'app_bool', 'sup_bool', 'soc_bool')
 
 class ClientRegForm(forms.ModelForm):
 

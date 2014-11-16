@@ -49,7 +49,6 @@ def register_student(request):
 
             # Now we save the StudentUser model instance.
             a = student_reg.save()
-            print a
 
             # Update our variable to tell the template registration was successful.
             registered = True
