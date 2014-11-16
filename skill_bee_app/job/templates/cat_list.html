@@ -8,10 +8,10 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>SkillBee</title>
+    <title>Student Listing</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../../static/css/homePage.css" rel="stylesheet">
+    <link href="../../static/css/homePageAuth.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -24,7 +24,7 @@
     <![endif]-->
 
     <!-- Custom styles for this template -->
-    <link href="../../static/css/carousel.css" rel="stylesheet">
+    <link href="../../static/css/carouselAuth.css" rel="stylesheet">
   </head>
 <!-- NAVBAR
 ================================================== -->
@@ -62,12 +62,89 @@
 
       </div>
     </div>
+	{% if user.is_authenticated %}
+    <body class="signinDone">
+    	<hr class="featurette-divider">
 
-    <body>
+    <div class="container marketing">
+<!--
+      <div class="row" style="color: #666">
+        <div class="col-lg-4">
+          <img class="img-circle" src="http://skillbee.site90.net/wp-content/uploads/2013/11/web-design.jpeg" alt="Generic placeholder image" style="width: 250px; height: 250px;">
+          <h2>Websites and Apps</h2>
+          <p></p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div>
+        <div class="col-lg-4">
+          <img class="img-circle" src="http://skillbee.site90.net/wp-content/uploads/2013/11/computer_help.jpg" alt="Generic placeholder image" style="width: 250px; height: 250px;">
+          <h2>Computer Support</h2>
+          <p></p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div>
+        <div class="col-lg-4">
+          <img class="img-circle" src="http://skillbee.site90.net/wp-content/uploads/2013/11/social-media-tree.jpg" alt="Generic placeholder image" style="width: 250px; height: 250px;">
+          <h2>Social Media</h2>
+          <p></p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div>
+      </div>
 
-    {{ students }}
-    <br />
-    {{ cat }}
+-->
+      <!-- START THE FEATURETTES -->
+      {% if cat == "APP" %}
+      <div class="row">
+        <div>
+          <h2 class="featurette-heading"> <img src="http://i.imgur.com/DzZblWX.jpg" alt="APP"> Websites and Mobile Applications</h2>
+        </div>
+      </div>
+
+      {% elif cat == "SUP" %}
+      <div class="row">
+      	<div>
+          <h2 class="featurette-heading"> <img src="http://i.imgur.com/aNWfnH7.jpg" alt="Computer Support"> Computer Support</h2>
+        </div>
+      </div>
+
+      {% elif cat == "SOC" %}
+      <div class="row">
+        <div>
+          <h2 class="featurette-heading"> <img src="http://i.imgur.com/S7BENw3.jpg" alt="Social Media"> Social Media</h2>
+        </div>
+      </div>
+
+    	{% endif %}
+
+      <hr class="featurette-divider">
+
+    	<!-- Cycle through students in APP-->
+		<div class="row">
+		  <div class="col-sm-6 col-md-4">
+		  	{% for stud in students %}
+		    <div class="thumbnail">
+		      <img src="http://graphics.fansonly.com/photos/schools/va/genrel/auto_action/a-CavManCartoon.jpg" alt="...">
+		      <div class="caption">
+		        <h3>{{ students.<student_id>.name }}</h3>
+		        <p> {{ students.<student_id>.major }} <br> 
+		        	{{ students.<student_id>.gpa }}
+		        </p>
+		        <p><a href="/job/create/<student_id>" class="btn btn-primary" role="button">Make Offer</a> 
+		        	<a href="#" class="btn btn-default" role="button">See More</a></p>
+		      </div>
+		    </div>
+		    {% endfor %}
+		  </div>
+		</div>
+
+    	<br />
+    	
+    	{% else %}
+			<h1>Please Login to view this page!</h1>
+			<a href="/auth/register-student/">Register Here [STUDENT]</a><br />
+			<a href="/auth/register-client/">Register Here [CLIENT]</a>
+			<p><a class="btn btn-lg btn-primary" href="/auth/login/" role="button" style="position: absolute, size: 50">Login</a></p>
+			<br />
+		{% endif %}
+		<br>
 
     </body>
 </html>
