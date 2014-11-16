@@ -14,11 +14,11 @@
 
 
 {% if user.is_authenticated %}
-<a href="/login/logout/">Logout</a><br />
+<a href="/auth/logout/">Logout</a><br />
 {% else %}
-<a href="/login/register-student/">Register Here [STUDENT]</a><br />
-<a href="/login/register-client/">Register Here [CLIENT]</a>
-<a href="/login/login/">Login</a><br />
+<a href="/auth/register-student/">Register Here [STUDENT]</a><br />
+<a href="/auth/register-client/">Register Here [CLIENT]</a>
+<a href="/auth/login/">Login</a><br />
 {% endif %}
 
 </body>

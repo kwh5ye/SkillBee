@@ -1,5 +1,5 @@
 from django import forms
-from login.models import StudentUser, ClientUser
+from auth_op.models import StudentUser, ClientUser
 from django.contrib.auth.models import User
 
 class UserRegForm(forms.ModelForm):

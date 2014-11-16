@@ -5,15 +5,15 @@
     </head>
 
     <body>
-        <h1>Register a Student user account</h1>
+        <h1>Register a Client user account</h1>
 
         {% if registered %}
         Rango says: <strong>thank you for registering!</strong>
-        <a href="/rango/">Return to the homepage.</a><br />
+        <a href="/auth/">Return to the homepage.</a><br />
         {% else %}
         Rango says: <strong>register here!</strong><br />
 
-        <form id="user_form" method="post" action="/login/register-student/"
+        <form id="user_form" method="post" action="/auth/register-client/"
                 enctype="multipart/form-data">
 
             {% csrf_token %}
@@ -22,7 +22,7 @@
                  (<p>) element. This ensures each element appears on a new line,
                  making everything look neater. -->
             {{ user_reg_form.as_p }}
-            {{ student_reg_form.as_p }}
+            {{ client_reg_form.as_p }}
 
             <!-- Provide a button to click to submit the form. -->
             <input type="submit" name="submit" value="Register" />

@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from login.models import StudentUser, ClientUser
+from auth_op.models import StudentUser, ClientUser
 
 #from rango.models import Category, Page, UserProfile
 

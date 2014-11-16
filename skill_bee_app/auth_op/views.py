@@ -1,4 +1,4 @@
-from login.forms import StudentRegForm, ClientRegForm, UserRegForm
+from auth_op.forms import StudentRegForm, ClientRegForm, UserRegForm
 
 from django.http import HttpResponseRedirect, HttpResponse
 from django.views import generic
@@ -149,7 +149,7 @@ def user_login(request):
                 # If the account is valid and active, we can log the user in.
                 # We'll send the user back to the homepage.
                 login(request, user)
-                return HttpResponseRedirect('/login')
+                return HttpResponseRedirect('/auth/')
             else:
                 # An inactive account was used - no logging in!
                 return HttpResponse("Your Rango account is disabled.")
@@ -172,4 +172,4 @@ def user_logout(request):
     logout(request)
 
     # Take the user back to the homepage.
-    return HttpResponseRedirect('/login/')
+    return HttpResponseRedirect('/auth/')
