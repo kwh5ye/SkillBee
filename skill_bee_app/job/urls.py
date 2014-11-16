@@ -4,6 +4,6 @@ from job import views
 
 urlpatterns = patterns('',
     #url(r'^$', views.IndexView.as_view(), name='index'),
-    url(r'^view-students/$', views.view_students , name='view_students'),
+    url(r'^view-students/(?P<cat>\w+)/$', views.view_students , name='view_students'),
 )
 

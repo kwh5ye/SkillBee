@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 from auth_op.models import ClientUser, StudentUser
 
-def view_students(request):
+def view_students(request, cat):
   context = RequestContext(request)
   
   render_page = 'error.html'
@@ -14,24 +14,30 @@ def view_students(request):
     if request.user.is_authenticated():
       try:
         client_id = ClientUser.objects.get(user_id=request.user.id)
-        cat = 'APP' # this is for testing
-        
-        render_page = 'cat_list.html'
+         
         if(cat != 'APP' and cat != 'SUP' and cat != 'SOC'):
-          render_dict['error_message'] = 'Category key is not valid.'
-          except
+          render_dict['error_message'] = 'Category key is not valid: <' + cat + '.'
+        else:
+          render_page = 'cat_list.html'
+          if(cat == 'APP'):
+            student_id_list = StudentUser.objects.filter(app_bool=True)
+          if(cat == 'SUP'):
+            student_id_list = StudentUser.objects.filter(sup_bool=True)
+          if(cat == 'SOC'):
+            student_id_list = StudentUser.objects.filter(soc_bool=True)
 
-        if(cat == 'APP'):
-          student_id_list = StudentUser.objects.get(app_bool=True)
-        if(cat == 'SUP'):
-          1
-        if(cat == 'SOC'):
-          1
-        curr_student = {}
-        curr_student['name']
-        curr_student['major']
-        curr_student['gpa']
-        curr_student['request_url']
+          student_list = {}
+          for student in student_id_list:
+            curr_student = {}
+            curr_user = User.objects.get(id=student.user_id)        
+
+            curr_student['name'] = curr_user.first_name + " " + curr_user.last_name
+            curr_student['major'] = student.major
+            curr_student['gpa'] = student.gpa
+            student_list['student_id'] = curr_student
+          
+          render_dict['students'] = student_list
+          render_dict['cat'] = cat
       except:
         render_dict['error_message'] = "User does not have a CLIENT account."
     else:
