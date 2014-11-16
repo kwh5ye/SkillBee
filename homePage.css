@@ -1580,6 +1580,16 @@ pre code{
 	overflow-y:scroll
 }
 
+/* Kate's new fancy container for top
+*/
+.topBanner{
+	padding-right:15px;
+	padding-left:15px;
+	padding-top: 50px;
+	margin-right:auto;
+	margin-left:auto
+}
+
 .container{
 	padding-right:15px;
 	padding-left:15px;
