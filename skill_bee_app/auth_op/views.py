@@ -8,7 +8,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
 class IndexView(generic.ListView):
-    template_name = 'index.html'
+    template_name = 'auth_index.html'
     context_object_name = 'latest_poll_list'
 
     def get_queryset(self):
