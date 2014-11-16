@@ -1,7 +1,11 @@
 from login.forms import StudentRegForm, ClientRegForm, UserRegForm
+
+from django.http import HttpResponseRedirect, HttpResponse
 from django.views import generic
 from django.template import RequestContext
 from django.shortcuts import render_to_response
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
 class IndexView(generic.ListView):
     template_name = 'index.html'
@@ -145,7 +149,7 @@ def user_login(request):
                 # If the account is valid and active, we can log the user in.
                 # We'll send the user back to the homepage.
                 login(request, user)
-                return HttpResponseRedirect('/rango/')
+                return HttpResponseRedirect('/login')
             else:
                 # An inactive account was used - no logging in!
                 return HttpResponse("Your Rango account is disabled.")
@@ -160,3 +164,12 @@ def user_login(request):
         # No context variables to pass to the template system, hence the
         # blank dictionary object...
         return render_to_response('login.html', {}, context)
+
+# Use the login_required() decorator to ensure only those logged in can access the view.
+@login_required
+def user_logout(request):
+    # Since we know the user is logged in, we can now just log them out.
+    logout(request)
+
+    # Take the user back to the homepage.
+    return HttpResponseRedirect('/login/')

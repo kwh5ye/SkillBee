@@ -12,10 +12,14 @@
 
 <br>
 
-<a href="/rango/login/">Login</a>
-<br>
-<a href="/login/register-student/">Register as a STUDENT Here</a>
-<br>
-<a href="/login/register-client/">Register as a CLIENT Here</a>
+
+{% if user.is_authenticated %}
+<a href="/login/logout/">Logout</a><br />
+{% else %}
+<a href="/login/register-student/">Register Here [STUDENT]</a><br />
+<a href="/login/register-client/">Register Here [CLIENT]</a>
+<a href="/login/login/">Login</a><br />
+{% endif %}
+
 </body>
 </html>
