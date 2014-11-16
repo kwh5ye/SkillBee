@@ -42,18 +42,20 @@
                 <span class="icon-bar"></span>
               </button>
 
-              <a class="navbar-brand" href="#"><img src="http://skillbee.site90.net/wp-content/uploads/2013/11/bee-skillz1.jpg" style="width: 90px; height: 40px;"></img></a>
+              <a class="navbar-brand" href="/"><img src="http://skillbee.site90.net/wp-content/uploads/2013/11/bee-skillz1.jpg" style="width: 90px; height: 40px;"></img></a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li class="active"><a href="/">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
               </ul>
             <ul class="nav navbar-nav navbar-right">
                 {% if user.is_authenticated %}
-                <li class="active"><a href="#">Jobs</a></li>
-                <li class="active"><a href="#about">Logout</a></li>
+                <li class="active"><a href="/jobContact">Jobs</a></li>
+                <li class="active"><a href="#">Logout</a></li>
+                {% else %}
+                <li class="active"><a href="/login">Login</a></li>
                 {% endif %}
               </ul>
             </div>
@@ -71,6 +73,9 @@
       <div class="carousel-inner" role="listbox">
         <div class="item active">
           <div class="topBanner">
+            <div>
+            <embed width="420" height="315" src="https://www.youtube.com/watch?v=F1jtC2-jw70">
+            </div>
             <div class="carousel-caption">
               <img src="http://i.imgur.com/zX5yJZZ.jpg" class="header-image"/>
               <p></p>

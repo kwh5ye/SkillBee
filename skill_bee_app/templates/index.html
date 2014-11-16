@@ -8,10 +8,10 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Carousel Template for Bootstrap</title>
+    <title>SkillBee</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="/static/css/homePage.css" rel="stylesheet">
+    <link href="../static/css/homePage.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -24,7 +24,7 @@
     <![endif]-->
 
     <!-- Custom styles for this template -->
-    <link href="/static/css/carousel.css" rel="stylesheet">
+    <link href="../static/css/carousel.css" rel="stylesheet">
   </head>
 <!-- NAVBAR
 ================================================== -->
@@ -42,13 +42,21 @@
                 <span class="icon-bar"></span>
               </button>
 
-              <a class="navbar-brand" href="#"><img src="http://skillbee.site90.net/wp-content/uploads/2013/11/bee-skillz1.jpg" style="width: 90px; height: 40px;"></img></a>
+              <a class="navbar-brand" href="/"><img src="http://skillbee.site90.net/wp-content/uploads/2013/11/bee-skillz1.jpg" style="width: 90px; height: 40px;"></img></a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li class="active"><a href="/">Home</a></li>
+                <li><a href="https://www.youtube.com/watch?v=F1jtC2-jw70"> About</a></li>
+                <li><a href="#">Contact</a></li>
+              </ul>
+            <ul class="nav navbar-nav navbar-right">
+                {% if user.is_authenticated %}
+                <li class="active"><a href="/jobContact">Jobs</a></li>
+                <li class="active"><a href="#">Logout</a></li>
+                {% else %}
+                <li class="active"><a href="/login">Login</a></li>
+                {% endif %}
               </ul>
             </div>
           </div>
@@ -64,40 +72,40 @@
       <!-- Indicators -->
       <div class="carousel-inner" role="listbox">
         <div class="item active">
-          <div class="container">
+          <div class="topBanner">
             <div class="carousel-caption">
-              <img src="http://skillbee.site90.net/wp-content/uploads/2013/11/bee-skillz1.jpg" style="width: 800px, height: 500px, position: relative, ">
+              <img src="http://i.imgur.com/zX5yJZZ.jpg" class="header-image"/>
               <p></p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button" style="position: absolute">Sign up today</a></p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button" style="position: absolute, width: 800px, height: 400px,">Sign up today</a></p>
             </div>
           </div>
         </div>
       </div>
     </div><!-- /.carousel -->
- <hr class="featurette-divider">
 
     <!-- Marketing messaging and featurettes
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
+ <hr class="featurette-divider">
 
     <div class="container marketing">
 
       <!-- Three columns of text below the carousel -->
       <div class="row" style="color: #666">
         <div class="col-lg-4">
-          <img class="img-circle" src="http://skillbee.site90.net/wp-content/uploads/2013/11/web-design.jpeg" alt="Generic placeholder image" style="width: 200px; height: 200px;">
+          <img class="img-circle" src="http://skillbee.site90.net/wp-content/uploads/2013/11/web-design.jpeg" alt="Generic placeholder image" style="width: 250px; height: 250px;">
           <h2>Websites and Apps</h2>
           <p></p>
           <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
-          <img class="img-circle" src="http://skillbee.site90.net/wp-content/uploads/2013/11/computer_help.jpg" alt="Generic placeholder image" style="width: 200px; height: 200px;">
+          <img class="img-circle" src="http://skillbee.site90.net/wp-content/uploads/2013/11/computer_help.jpg" alt="Generic placeholder image" style="width: 250px; height: 250px;">
           <h2>Computer Support</h2>
           <p></p>
           <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
-          <img class="img-circle" src="http://skillbee.site90.net/wp-content/uploads/2013/11/social-media-tree.jpg" alt="Generic placeholder image" style="width: 200px; height: 200px;">
+          <img class="img-circle" src="http://skillbee.site90.net/wp-content/uploads/2013/11/social-media-tree.jpg" alt="Generic placeholder image" style="width: 250px; height: 250px;">
           <h2>Social Media</h2>
           <p></p>
           <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
@@ -108,10 +116,9 @@
       <!-- START THE FEATURETTES -->
 
       <hr class="featurette-divider">
-
       <div class="row featurette">
         <div class="col-md-7">
-          <h2 class="featurette-heading"> 11/12 <span class="text-muted">Joe Smith helps Steven Parker</span></h2>
+          <h2 class="featurette-heading"> 11/12 <span class="text-muted">Joe Smith helps Steven Parker (CapitalOne Labs)</span></h2>
           <p class="lead">"I really appreciate how flexible with scheduling and all the help that Joe provided when I was freaking out about my laptop when I almost lost a 50 page lab report due 2 days later. He came over and walked me through each step helping with random questions, even saving my lab report... MY HERO!!!! lol..."</p>
         </div>
         <div class="col-md-5">
@@ -135,11 +142,11 @@
 
       <div class="row featurette">
         <div class="col-md-7">
-          <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+          <h2 class="featurette-heading">10/31 <span class="text-muted">Jack Zhou helps Bella's</span></h2>
+          <p class="lead">"I'm going to be honest, I'm not a technical guy, which is why guys like Jack are gonna get rich QUICK. SkillBee was exactly what I needed because I just needed someone to revamp my logo and menu to give Bella a new look for Halloween. I would have also asked him to help with the website, but my wife..."</p>
         </div>
         <div class="col-md-5">
-          <img class="featurette-image img-responsive" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+          <img class="featurette-image img-responsive" src="http://vmvbrands.com/wp-content/uploads/2012/02/Bellas-Restaurant-logo.jpg" alt="Generic placeholder image" style="width: 500px, height: 500px">
         </div>
       </div>
 
