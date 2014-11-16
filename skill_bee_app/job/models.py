@@ -24,8 +24,6 @@ class Job(models.Model):
     progress = models.CharField(max_length=2, choices=PROG_STATE, default=NOT_ACCEPTED)
     student_id = models.IntegerField()
     client_id = models.IntegerField()
-    question_text = models.CharField(max_length=200)
-    pub_date = models.DateTimeField('date published')
 
     def __unicode__(self):
       return str(self.description)

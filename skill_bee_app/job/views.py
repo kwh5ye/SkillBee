@@ -46,3 +46,34 @@ def view_students(request, cat):
     render_dict['error_message'] = "Incorrect request type."
 
   return render_to_response(render_page, render_dict, context)
+
+def create_job_request(request, student_id):
+  context = RequestContext(request)
+
+  render_dict = {}
+  render_page = 'error.html'
+
+  if request.user.is_authenticated():
+    try:
+      client_id = ClientUser.objects.get(user_id=request.user.id) 
+      if request.method == 'POST':
+        job_req_form = JobRequestForm(data=request.POST)
+        if job_req_form.is_valid():
+          render_page = 'create_job.html'
+
+          job_req = job_req_form.save(commit=False)
+          job_req.student_id = student_id
+          job_req.client_id = client_id
+          job_req.save()
+        else:
+          print job_req_form.errors
+      else:
+        job_req_form = JobReqForm()
+    except:
+      render_dict['error_message'] = "User does not have a CLIENT account."
+  else:
+    render_dict['error_message'] = "User is not authenticated."
+   
+  return render_to_response(render_page, render_dict, context)
+
+
