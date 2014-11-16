@@ -47,15 +47,15 @@
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
                 <li class="active"><a href="/">Home</a></li>
-                <li><a href="#">About</a></li>
+                <li><a href="https://www.youtube.com/watch?v=F1jtC2-jw70"> About</a></li>
                 <li><a href="#">Contact</a></li>
               </ul>
             <ul class="nav navbar-nav navbar-right">
                 {% if user.is_authenticated %}
                 <li class="active"><a href="/jobContact">Jobs</a></li>
-                <li class="active"><a href="#">Logout</a></li>
+                <li class="active"><a href="/auth/logout">Logout</a></li>
                 {% else %}
-                <li class="active"><a href="/login">Login</a></li>
+                <li class="active"><a href="/auth/login">Login</a></li>
                 {% endif %}
               </ul>
             </div>
@@ -64,12 +64,12 @@
 
       </div>
     </div>
-
+  </body> 
 	<body class="signinDone">
 			{% if user.is_authenticated %}
 			<h1>Hello {{ user.username }}!</h1>
 			{% else %}
-			<h1>Login Unsuccessful... :C</h1>
+			<h1>Future Profile Page!</h1>
 				{% endif %}
 
 			<br>
@@ -77,9 +77,10 @@
 			{% if user.is_authenticated %}
 				<a href="/auth/logout/">Logout</a><br />
 			{% else %}
+        <p>Looks super cool, right? You should join to have your own when it's done! Make some Money! $$$$$$$$ </p>
 				<a href="/auth/register-student/">Register Here [STUDENT]</a><br />
 				<a href="/auth/register-client/">Register Here [CLIENT]</a>
-				<a href="/auth/login/">Login</a><br />
+				<br />
 			{% endif %}
     <img src="http://i.imgur.com/vL2lrcO.png" style="horizontal-alignment: middle, width: auto"/>
 	</body>

@@ -53,7 +53,7 @@
             <ul class="nav navbar-nav navbar-right">
                 {% if user.is_authenticated %}
                 <li class="active"><a href="/jobContact">Jobs</a></li>
-                <li class="active"><a href="#">Logout</a></li>
+                <li class="active"><a href="/auth/logout">Logout</a></li>
                 {% else %}
                 <li class="active"><a href="/login">Login</a></li>
                 {% endif %}
@@ -64,7 +64,7 @@
 
       </div>
     </div>
-
+  </body>
 
     <!-- Carousel
     ================================================== -->

@@ -47,13 +47,13 @@
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
                 <li class="active"><a href="/">Home</a></li>
-                <li><a href="#">About</a></li>
+                <li><a href="https://www.youtube.com/watch?v=F1jtC2-jw70"> About</a></li>
                 <li><a href="#">Contact</a></li>
               </ul>
             <ul class="nav navbar-nav navbar-right">
                 {% if user.is_authenticated %}
                 <li class="active"><a href="/jobContact">Jobs</a></li>
-                <li class="active"><a href="#">Logout</a></li>
+                <li class="active"><a href="/auth/logout">Logout</a></li>
                 {% else %}
                 <li class="active"><a href="/login">Login</a></li>
                 {% endif %}
@@ -64,6 +64,8 @@
 
       </div>
     </div>
+  </body>
+  
   <div class="jumbotron">
     <head>
         <!-- Is anyone getting tired of repeatedly entering the header over and over?? -->
