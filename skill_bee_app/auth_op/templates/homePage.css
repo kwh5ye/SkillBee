@@ -51,6 +51,23 @@ body {
   padding: 15px;
   margin: 0 auto;
 }
+.form-register {
+  max-width: 1000px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.form-register p {
+	max-width: 1000px;
+	color: #2E5C8A;
+	padding-left: 250px;
+	padding-top: 100px;	
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 14px;
+	line-height: 1.42857;
+	color: #333;
+	background-color: #FFF;
+}
 .form-signin .form-signin-heading,
 .form-signin .checkbox {
   margin-bottom: 10px;
