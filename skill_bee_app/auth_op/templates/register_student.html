@@ -50,6 +50,12 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
               </ul>
+                <ul class="nav navbar-nav navbar-right">
+                {% if user.is_authenticated %}
+                <li class="active"><a href="#">Jobs</a></li>
+                <li class="active"><a href="#about">Logout</a></li>
+                {% endif %}
+              </ul>
             </div>
           </div>
         </nav>
@@ -77,7 +83,10 @@
             {{ student_reg_form.as_p }}
 
             <!-- Provide a button to click to submit the form. -->
-            <input type="submit" name="submit" value="Register" />
+            <button name="submit" value="Register" class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+
+<!--            <input type="submit" name="submit" value="Register" />
+-->
         </form>
         {% endif %}
     </body>

@@ -54,6 +54,7 @@ body {
 .form-register {
   max-width: 1000px;
   padding: 15px;
+  padding-left: 100px;
   margin: 0 auto;
 }
 
@@ -68,6 +69,11 @@ body {
 	color: #333;
 	background-color: #FFF;
 }
+
+.form-register-heading {
+  margin-bottom: 10px;
+}
+
 .form-signin .form-signin-heading,
 .form-signin .checkbox {
   margin-bottom: 10px;
