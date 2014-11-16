@@ -15,10 +15,10 @@ body{
 * Kate's edits start here
 */
 .signinDone {
-	max-width: 600px;
+	max-width: 1000px;
 	color: #2E5C8A;
-	padding-left: 45px;
-	padding-top: 70px;
+	padding-left: 250px;
+	padding-top: 100px;
 }
 .custimg {
 	width: 500px;

@@ -8,6 +8,11 @@ body {
   font-size: 10px;
 }
 
+.header-img {
+  padding-top: 200px;
+  position: relative;
+  float: center;
+}
 
 /* CUSTOMIZE THE NAVBAR
 -------------------------------------------------- */
@@ -83,6 +88,11 @@ body {
 /* Featurettes
 ------------------------- */
 
+.featurette {
+  padding-top: -25px;
+  padding-bottom: -25px;
+}
+
 .featurette-image {
   width: 500px;
   height: 500px;
@@ -93,7 +103,7 @@ body {
 }
 
 .featurette-divider {
-  margin: 60px 0; /* Space out the Bootstrap <hr> more */
+  margin: 40px 0; /* Space out the Bootstrap <hr> more */
 }
 
 /* Thin out the marketing headings */

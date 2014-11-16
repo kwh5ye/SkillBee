@@ -47,8 +47,14 @@
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li class="active"><a href="#about">About</a></li>
+                <li class="active"><a href="#contact">Contact</a></li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                {% if user.is_authenticated %}
+                <li class="active"><a href="#">Jobs</a></li>
+                <li class="active"><a href="#about">Logout</a></li>
+                {% endif %}
               </ul>
             </div>
           </div>
@@ -73,6 +79,6 @@
 				<a href="/auth/register-client/">Register Here [CLIENT]</a>
 				<a href="/auth/login/">Login</a><br />
 			{% endif %}
-
 	</body>
+  <img src="http://i.imgur.com/vL2lrcO.png" class="header-img"/>
 </html>
