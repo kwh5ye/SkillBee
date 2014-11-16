@@ -7,6 +7,6 @@ urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'skill_bee_app.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
-    url(r'^login/', include('login.urls')),
+    url(r'^auth/', include('auth_op.urls')),
     url(r'^admin/', include(admin.site.urls)),
 )
