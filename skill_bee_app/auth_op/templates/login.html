@@ -68,7 +68,9 @@
             {% csrf_token %}
             <br>
             <label for="inputUsername" class="sr-only">Username </label>
-            <input type="text" id="inputUsername" name="username" value="" size="50" class="form-control" placeholder="Username" required autofocus/>
+            <input id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="" type="email">
+<!--            <input id="inputUsername" name="username" value="" size="50" class="form-control" placeholder="Username" required autofocus/> 
+-->
             <br>
             <label for="inputPassword" class="sr-only">Password</label>
             <input type="password" id="inputPassword" class="form-control" name="password" value="" size="50" placeholder="Password" required/>
